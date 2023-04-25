@@ -1,0 +1,63 @@
+﻿@model AspNetPowerBi.Services.PowerBIEmbedConfig
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    #reportContainer {
+        height: 600px;
+        width: 100%;
+        max-width: 2000px;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div id="reportContainer"></div>
+</div>
+
+<script src="https://npmcdn.com/es6-promise@3.2.1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/powerbi-client/2.22.2/powerbi.min.js" integrity="sha512-6/5T3RvphqYN/YsdvaxOWktOe2E/9aZGTtV5Azs65TfWUzgPNJS75LBFEo1uKtMirNfauflyAQDTDxaFW4yu/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+@section scripts {
+    <script>
+        // Read embed application token from Model
+        var accessToken = "@Model.EmbedToken.Token";
+
+        // Read embed URL from Model
+        var embedUrl = "@Html.Raw(Model.EmbedUrl)";
+
+        // Read report Id from Model
+        var embedReportId = "@Model.Id";
+
+        // Get models. models contains enums that can be used.
+        var models = window['powerbi-client'].models;
+
+        // Embed configuration used to describe the what and how to embed.
+        // This object is used when calling powerbi.embed.
+        // This also includes settings and options such as filters.
+        // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
+        var config = {
+            type: 'report',
+            tokenType: models.TokenType.Embed,
+            accessToken: accessToken,
+            embedUrl: embedUrl,
+            id: embedReportId,
+            permissions: models.Permissions.All,
+            settings: {
+                filterPaneEnabled: true,
+                navContentPaneEnabled: true
+            }
+        };
+
+        $(document).ready(function () {
+            // Get a reference to the embedded report HTML element
+            var reportContainer = $('#reportContainer')[0];
+
+            // Embed the report and display it within the div container.
+            powerbi.embed(reportContainer, config);
+        });
+    </script>
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33513.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetPowerBi", "AspNetPowerBi.csproj", "{BEFC52BD-1B41-4CDE-8EF8-5A042604D754}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEFC52BD-1B41-4CDE-8EF8-5A042604D754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEFC52BD-1B41-4CDE-8EF8-5A042604D754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEFC52BD-1B41-4CDE-8EF8-5A042604D754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEFC52BD-1B41-4CDE-8EF8-5A042604D754}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5CC20F6-DA23-4235-95F8-9F0A8347D87C}
+	EndGlobalSection
+EndGlobal
